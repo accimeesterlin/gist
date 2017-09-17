@@ -1,96 +1,88 @@
-<body>
 
-<div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="/">Home</a>
-  <a href="/users">Users</a>
-  <a href="/survey">Survey</a>
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="/">Home</a>
+    <a href="/users">Users</a>
+    <a href="/survey">Survey</a>
   </div>
+  <h2></h2>
+  <p></p>
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
 
-<h2></h2>
-<p></p>
-<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
-
-<script>
-function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-}
-
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-}
-</script>
   <div class="container">
     <div class="jumbotron">
-
       <h1 class=""> Get Your Perfect Gift </h1>
-
       <hr>
       <h2> Get ready to receive your perfect gift! </h2>
     </div>
     <h2>Survey Questions</h2>
     <hr>
-    <h3><strong>Tell Us About Yourself</strong></h3>
-    <h4>First Name (Required)</h4>
-    <input type="text" name="" id="firstname" class="form-control" required>
-    <h4>Last Name (Required)</h4>
-    <input type="text" name="" id="lastname" class="form-control" required>
-    <h4>Username (Required)</h4>
-    <input type="text" name="" id="username" class="form-control" required>
-    <h4>Describe yourself in a few words. (Required)</h4>
-    <input type="text" name="" id="about" class="form-control" required>
-    <h4>E-mail address (Required)</h4>
-    <input type="email" name="" id="email" class="form-control" required>
-    <h4>Password (Required)</h4>
-    <input type="password" name="" id="password" class="form-control" required>
-    <hr>
-
-
-    <h3><strong>Question</strong></h3>
-    <h4>What kind of things do you enjoy the most?</h4>
-    <select data-placeholder="" class="chosen-select" id="q100">
-      <option value=""></option>
-      <option value="1">Go out on the Town!</option>
-      <option value="2">Spa Day</option>
-      <option value="3">Eat out!</option>
-      <option value="4">Goods!(Electronics, Toys and Tools)</option>
-      <option value="5">Go on Vacation</option>
-      <option value="6">Fitness! </option>
-      <option value="7">Cars good!</option>
-    </select>
-
-    <br>
-    <br>
-    <a href="/">
-      <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle" aria-hidden="true"></i> Submit
-      </button>
-    </a>
+    <form class="create-update-form" action="/receiving" method="POST">
+        <h3><strong>Tell Us About Yourself</strong></h3>
+        <h4>First Name (Required)</h4>
+        <input type="text" name="firstname" id="firstname" class="form-control" required>
+        <h4>Last Name (Required)</h4>
+        <input type="text" name="lastname" id="lastname" class="form-control" required>
+        <h4>Username (Required)</h4>
+        <input type="text" name="username" id="username" class="form-control" required>
+        <h4>Describe yourself in a few words. (Required)</h4>
+        <input type="text" name="info" id="about" class="form-control" required>
+        <h4>E-mail address (Required)</h4>
+        <input type="email" name="email" id="email" class="form-control" required>
+        <h4>Password (Required)</h4>
+        <input type="password" name="password" id="password" class="form-control" required>
+        <hr>
+        <h3><strong>Question</strong></h3>
+        <h4>What kind of things do you enjoy the most?</h4>
+        <select data-placeholder="" class="chosen-select" id="q100" name="options">
+          <option value=""></option>
+          <option value="1">Go out on the Town!</option>
+          <option value="2">Spa Day</option>
+          <option value="3">Eat out!</option>
+          <option value="4">Goods!(Electronics, Toys and Tools)</option>
+          <option value="5">Go on Vacation</option>
+          <option value="6">Fitness! </option>
+          <option value="7">Cars good!</option>
+        </select>
+        <br>
+        <br>
+        <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle" aria-hidden="true"></i> Submit
+          </button>
+    </form>
     <br>
     <br>
     <footer class="footer text-center">
       <div class="container">
-            <p><a href="">About Team Impossible Burger</a> | <a href="https://github.com/xproctor90/GetITGiveIT">GitHub Repo</a>
-          <br> &copy; 2017 Team Impossible Burger</p>
+        <p><a href="">About Team Impossible Burger</a> | <a href="https://github.com/xproctor90/GetITGiveIT">GitHub Repo</a>
+      <br> &copy; 2017 Team Impossible Burger</p>
+    </div>
+  </footer>
+</div>
+<!-- Modal -->
+<div id="resultsModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h2 class="modal-title"><strong>Best Buddy</strong></h2>
       </div>
-    </footer>
-  </div>
-  <!-- Modal -->
-  <div id="resultsModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h2 class="modal-title"><strong>Best Buddy</strong></h2>
-        </div>
-        <div class="modal-body">
-          <h2 id="matchName"></h2>
-          <img id="matchImg" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt="">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
+      <div class="modal-body">
+        <h2 id="matchName"></h2>
+        <img id="matchImg" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt="">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
-  </body>
+</div>
+{{!-- <script src="add.js" type="text/javascript"></script> --}}
+  // <script>
+  // function openNav() {
+  // document.getElementById("mySidenav").style.width = "250px";
+  // }
+  // function closeNav() {
+  // document.getElementById("mySidenav").style.width = "0";
+  // }
+  // </script>

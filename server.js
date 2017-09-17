@@ -32,6 +32,10 @@ app.listen(8080, function(err) {
  
 });
 
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+
 //For Handlebars
 
 app.engine('hbs', exphbs({
@@ -40,10 +44,9 @@ app.engine('hbs', exphbs({
     layoutsDir: "public/views/layouts"
 }));
 
-var authRoute = require('./app/routes/auth.js')(app);
-
 require('./controllers/gift_controller.js')(app);
-require('./controllers/usercontroller.js');
+// var authRoute = require('./app/routes/auth.js')(app);
+// require('./controllers/usercontroller.js');
 
 
 
